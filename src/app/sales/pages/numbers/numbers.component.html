@@ -1,0 +1,26 @@
+<div class="text-layout">
+    <h1>Decimal and percentage Pipes</h1>
+    <p>
+        Decimal pipes are used to format numbers as text.
+    </p>
+</div>
+
+
+<div class="grid">
+    <div class="col-4">
+        <p-card header="totalSales" subheader="current year">
+            <i class="pi pi-dollar"></i>
+            {{ invoice | number:'2.2-2' }}
+        </p-card>
+    </div>
+    <div class="col-4">
+        <p-card header="NetSales" subheader="current year">            
+            {{ invoice | currency:'CAD':'symbol-narrow':'1.4-4' }}
+        </p-card>
+    </div>
+    <div class="col-4">
+        <p-card header="% Profit" subheader="current year">            
+            {{ percentage | percent:'2.2-2' }}
+        </p-card>
+    </div>
+</div>

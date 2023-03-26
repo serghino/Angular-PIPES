@@ -1,0 +1,63 @@
+<div class="text-layout">
+    <h1>no commons Pipes</h1>
+    <p>
+        Pipes no commons
+    </p>
+</div>
+
+<div class="grid">
+    <div class="col-12 md:col-6">
+        <p-fieldset legend="i18nSelect Pipe" [toggleable]="true">
+            <p>
+                Hello {{name}}, it's a pleasure to {{genre | i18nSelect: inviteMap}}.
+                To our event.
+            </p>
+            <button (click)="changePerson()" 
+                     pButton type="button" 
+                     label="Change Person"></button>
+        </p-fieldset>
+    </div>
+    <div class="col-12 md:col-6">
+        <p-fieldset legend="i18nPlural Pipe" [toggleable]="true">
+            <p>
+                Actually {{ clients.length| i18nPlural:clientsMap }}
+            </p>
+            <button (click)="removeClient()" 
+                    pButton type="button" label="Remove Client"
+                    class="p-button-danger"></button>
+        </p-fieldset>
+    </div>
+    <div class="col-12 md:col-6">
+        <p-fieldset legend="Slice Pipe" [toggleable]="true">
+            <strong>Original</strong>
+            <pre>{{clients}}</pre>
+            <strong>Slice0:2</strong>
+            <pre>{{clients | slice:0}}</pre>
+        </p-fieldset>
+    </div>
+    <div class="col-12 md:col-6">
+        <p-fieldset legend="Key Value Pipe" [toggleable]="true">
+            <ul>
+                <li *ngFor="let p of person | keyvalue">
+                    <b>{{p.key | titlecase}}</b>: {{p.value}}
+                </li>
+            </ul>
+        </p-fieldset>
+    </div>
+    <div class="col-12 md:col-6">
+        <p-fieldset legend="JSON Pipe" [toggleable]="true">
+            <ul>
+                <li *ngFor="let h of heroes">
+                    <pre>{{h | json}}</pre>
+                </li>
+            </ul>
+        </p-fieldset>
+    </div>
+    <div class="col-12 md:col-6">
+        <p-fieldset legend="ASYNC Pipe" [toggleable]="true">
+            <pre>{{myObservable | async}}</pre>
+            <pre *ngIf="!(valuePromise | async)">Loading ...</pre>
+            <pre>{{valuePromise | async}}</pre>
+        </p-fieldset>
+    </div>
+</div>
